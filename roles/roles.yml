@@ -1,0 +1,14 @@
+---
+- name: Build apllication
+  hosts: db
+  become: yes
+
+  roles:
+    - maven
+    - java
+
+- name: Run application
+  hosts: web
+
+  roles:
+    - java

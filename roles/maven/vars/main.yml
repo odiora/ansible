@@ -1,0 +1,5 @@
+---
+# vars file for maven
+package: maven
+path: /home/git
+

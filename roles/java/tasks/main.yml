@@ -1,0 +1,16 @@
+---
+# tasks file for java
+- name: Copy application to runner host
+  synchronize:
+    src: "{{ path }}"
+    dest: "{{ path }}"
+    mode: pull
+  delegate_to: 34.88.187.2 
+
+- name: Ensure java service is present
+  apt: name={{ package }} state=present
+
+- name: application run
+  shell:
+    cmd: java -jar simple-jar-app-0.0.1-SNAPSHOT.jar
+    chdir: "{{ path }}/target/"
